@@ -2,12 +2,13 @@ object paquete{
     var property persona = Neo
     var property  destino = puenteDeBrooklyn
     method puedeEntregarse(){
-        return stevenSpielberg.pagoPaquete() and destino.dejarPasarA_(persona)
+        return georgeLucas.pagoPaquete() and destino.dejarPasarA_(persona)
     }
 }
-object stevenSpielberg{
+object georgeLucas{
+    var property pagoPaquete = true
     method pagoPaquete(){
-        return true 
+        return pagoPaquete
     }
 }
 object puenteDeBrooklyn{
@@ -57,7 +58,7 @@ object moto {
      } 
 }
  object camion { 
-    var property acoplados = 1 
+    var property acoplados = 0
     method peso(){ 
     return 5000 * acoplados
      }

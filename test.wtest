@@ -1,1 +1,37 @@
-import mensajeros
+import mensajeros.*
+
+
+test "El paquete de George que no está pago no puede ser llevado por Neo a la matrix."{
+    paquete.destino(LaMatrix)
+    paquete.persona(Neo)
+    georgeLucas.pagoPaquete(false)
+    assert.equals(false, paquete.puedeEntregarse())
+}
+
+test "El paquete de George que sí está pago puede ser llevado por Jean a la matrix"{
+
+    paquete.destino(LaMatrix)
+    paquete.persona(JeanGray)
+    georgeLucas.pagoPaquete(true)
+    assert.equals(true, paquete.puedeEntregarse())
+}
+
+test "El paquete de George que sí está pago no puede ser llevado por Sara (que pesa 70kg) a Brooklyn si es que utiliza un camión con un acoplado ."{
+
+    paquete.destino(puenteDeBrooklyn)
+    paquete.persona(saraConnor)
+    saraConnor.vehiculo(camion)
+    camion.acoplados(1)
+    georgeLucas.pagoPaquete(true)
+    assert.equals(false, paquete.puedeEntregarse())
+}
+
+test "La entrega anterior puede hacerse si Sara usa una moto
+"{
+ paquete.destino(puenteDeBrooklyn)
+    paquete.persona(saraConnor)
+    saraConnor.vehiculo(moto)
+    georgeLucas.pagoPaquete(true)
+    assert.equals(true, paquete.puedeEntregarse())
+
+}
